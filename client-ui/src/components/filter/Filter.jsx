@@ -4,7 +4,7 @@ function Filter() {
   return (
     <div className="filter">
       <h1>
-        Search result for <b>Dhaka</b>
+        Search results for <b>Bangladesh</b>
       </h1>
       <div className="top">
         <div className="item">
@@ -21,7 +21,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="type">Type</label>
           <select name="type" id="type">
-            <option value="">any</option>
+            <option value="">Any</option>
             <option value="buy">Buy</option>
             <option value="rent">Rent</option>
           </select>
@@ -29,7 +29,7 @@ function Filter() {
         <div className="item">
           <label htmlFor="property">Property</label>
           <select name="property" id="property">
-            <option value="">any</option>
+            <option value="">Any</option>
             <option value="apartment">Apartment</option>
             <option value="house">House</option>
             <option value="condo">Condo</option>
@@ -42,16 +42,21 @@ function Filter() {
             type="number"
             id="minPrice"
             name="minPrice"
-            placeholder="any"
+            placeholder="Any"
           />
         </div>
         <div className="item">
           <label htmlFor="maxPrice">Max Price</label>
-          <input type="text" id="maxPrice" name="maxPrice" placeholder="any" />
+          <input
+            type="number"
+            id="maxPrice"
+            name="maxPrice"
+            placeholder="Any"
+          />
         </div>
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
-          <input type="text" id="bedroom" name="bedroom" placeholder="any" />
+          <input type="text" id="bedroom" name="bedroom" placeholder="Any" />
         </div>
         <button>
           <img src="/search.png" alt="" />
