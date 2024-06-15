@@ -26,6 +26,35 @@ function SinglePage() {
           </div>
         </div>
       </div>
+      <div className="features">
+        <div className="wrapper">
+          <p className="title">General</p>
+          <div className="listVertical">
+            <div className="feature">
+              <img src="/utility.png" alt="" />
+              <div className="featureText">
+                <span>Utilities</span>
+                <p>Renter is responsible</p>
+              </div>
+            </div>
+            <div className="feature">
+              <img src="/pet.png" alt="" />
+              <div className="featureText">
+                <span>Pet Policy</span>
+                <p>Pet Allowed</p>
+              </div>
+            </div>
+            <div className="feature">
+              <img src="/fee.png" alt="" />
+              <div className="featureText">
+                <span>Property fees</span>
+                <p>Must have 3x the rent in total household income</p>
+              </div>
+            </div>
+          </div>
+          <p className="tittle">Sizes</p>
+        </div>
+      </div>
     </div>
   );
 }
