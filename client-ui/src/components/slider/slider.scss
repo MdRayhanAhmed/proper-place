@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
+    z-index: 9999; //z index bigger than everything-remove(hamburger icon)
 
     .arrow {
       flex: 1;
