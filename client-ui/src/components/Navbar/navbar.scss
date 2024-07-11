@@ -1,10 +1,12 @@
 @import "../../responsive.scss";
+
 nav {
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   // background-color: #fff;
+
   a {
     transition: all 0.4s ease;
 
@@ -56,14 +58,58 @@ nav {
     @include md {
       background-color: transparent;
     }
+
     a {
       padding: 12px 24px;
       margin: 20px;
     }
 
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      span {
+        @include sm {
+          display: none;
+        }
+      }
+
+      .profile {
+        padding: 12px 24px;
+        background-color: #fece51;
+        cursor: pointer;
+        border: none;
+        position: relative;
+
+        .notification {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          width: 26px;
+          height: 26px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
     .register {
       background-color: #fece51;
     }
+
     .menuIcon {
       display: none;
       z-index: 99; //any number bigger than 1
@@ -78,6 +124,7 @@ nav {
         display: initial;
       }
     }
+
     .menu {
       position: absolute;
       top: 0;
@@ -96,6 +143,7 @@ nav {
       &.active {
         right: 0;
       }
+
       @include sm {
         a {
           display: initial;
