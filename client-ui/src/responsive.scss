@@ -9,6 +9,8 @@
   }
 }
 @mixin sm {
+  //sass finction
+  //media query
   @media (max-width: 738px) {
     @content;
   }
