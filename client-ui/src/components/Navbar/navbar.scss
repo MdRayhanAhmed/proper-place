@@ -15,12 +15,12 @@ nav {
     }
 
     &:hover {
-      scale: 1.05;
+      scale: 1.05; // increase scale 105% bigger
     }
   }
 
   .left {
-    flex: 3;
+    flex: 3; //3 units
     display: flex;
     align-items: center;
     gap: 50px;
@@ -48,7 +48,7 @@ nav {
     }
   }
   .right {
-    flex: 2;
+    flex: 2; //2 units
     display: flex;
     align-items: center;
     justify-content: flex-end;
