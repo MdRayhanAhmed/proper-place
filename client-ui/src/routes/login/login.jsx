@@ -1,11 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
+import { useState } from "react";
 
 function Login() {
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    const formData = new FormData(e.target);
+
+    const username = formData.get("username");
+    const password = formData.get("password");
+    console.log(username, password);
+
+    try {
+      const res = await apiRequest.post("/auth/login", {
+        username,
+        password,
+      });
+      console.log(res);
+
+      // navigate("/login");
+    } catch (err) {
+      setError(err.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div className="login">
       <div className="formContainer">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <h1>Welcome Back</h1>
           <input
             type="text"
@@ -21,7 +51,8 @@ function Login() {
             required
             placeholder="Password"
           />
-          <button>Login</button>
+          <button disabled={isLoading}>Login</button>
+          {error && <span>{error}</span>}
           <Link to="/register">Don't you have an account?</Link>
         </form>
       </div>
