@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useState } from "react";
-
+import apiRequest from "../../lib/apiRequest";
 function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -23,9 +23,9 @@ function Login() {
         username,
         password,
       });
-      console.log(res);
-
-      // navigate("/login");
+      console.log(res.data);
+      localStorage.setItem("user", JSON.stringify(res.data));
+      navigate("/");
     } catch (err) {
       setError(err.response.data.message);
     } finally {
@@ -49,6 +49,8 @@ function Login() {
             type="password"
             name="password"
             required
+            min={3}
+            max={20}
             placeholder="Password"
           />
           <button disabled={isLoading}>Login</button>
