@@ -55,6 +55,7 @@ export const login = async (req, res) => {
             id: user.id
         }, process.env.JWT_SECRET_KEY, { expiresIn: age })
 
+        const { password: userPassword, ...userInfo } = user
         res.cookie("token", token, {
             httpOnly: true,
             // secure: true
@@ -62,7 +63,7 @@ export const login = async (req, res) => {
 
         })
             .status(200)
-            .json({ message: "Login Successful" });
+            .json(userInfo);
 
     } catch (error) {
         console.log(error);
