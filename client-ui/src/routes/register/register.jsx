@@ -19,7 +19,7 @@ function Register() {
     const username = formData.get("username");
     const email = formData.get("email");
     const password = formData.get("password");
-    console.log(username, email, password);
+    // console.log(username, email, password);
 
     try {
       const res = await apiRequest.post("/auth/register", {
@@ -27,9 +27,10 @@ function Register() {
         email,
         password,
       });
-
+      // console.log(res.data);
       navigate("/login");
     } catch (err) {
+      // console.log(err);
       setError(err.response.data.message);
     } finally {
       setIsLoading(false);
@@ -40,9 +41,23 @@ function Register() {
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
-          <input name="username" type="text" placeholder="Username" />
-          <input name="email" type="text" placeholder="Email" />
-          <input name="password" type="password" placeholder="Password" />
+          <input
+            name="username"
+            type="text"
+            required
+            minLength={3}
+            maxLength={20}
+            placeholder="Username"
+          />
+          <input name="email" type="text" required placeholder="Email" />
+          <input
+            name="password"
+            type="password"
+            required
+            min={3}
+            max={20}
+            placeholder="Password"
+          />
           <button disabled={isLoading}>Register</button>
           {error && <span>{error}</span>}
           <Link to="/login">Do you have an account?</Link>
