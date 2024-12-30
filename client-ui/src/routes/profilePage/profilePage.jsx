@@ -11,7 +11,9 @@ function ProfilePage() {
       const res = await apiRequest.post("/auth/logout");
       localStorage.removeItem("user");
       navigate("/");
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="profilePage">
